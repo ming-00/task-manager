@@ -1,0 +1,104 @@
+<%= form_for task, url: url_path, method: method, local: true do |form|%>
+<%= render partial: 'shared/error_messages', locals: {attr: task} %>
+  <p>
+      <%= form.label :title, 'Title*' %><br>
+      <%= form.text_field :title, class: "form-control"%>
+
+    <p>
+        <%= form.label :description %><br>
+        <%= form.text_area :description, class:"form-control", rows:"4", cols:"30" %>
+    </p>
+
+    <p>
+        <%= form.label :deadline %><br>
+        <%= form.datetime_select :deadline, class: "form-control",
+          include_blank: true, start_year: Time.now.year, end_year: Time.now.year + 10%>
+    </p>
+
+    <strong>Tag(s):</strong>
+    <button type="button" class="btn btn-primary btn-sm" onclick="addTag()">
+      <i class="glyphicon glyphicon-plus"></i>
+    </button>
+    <div id="task_tags_tag_name">
+      <%= form.fields_for :tags do |tags_form| %>
+        <div class="input-group">
+          <%= tags_form.text_field :tag_name, class: "form-control"%>
+          <div class = "input-group-btn">
+            <button type="button" class="btn btn-default" onclick="removeTag(this)">
+              <i class="glyphicon glyphicon-minus"></i>
+            </button>
+          </div>
+          <%= tags_form.hidden_field :_destroy, value: 0 %>
+        </div>
+      <% end %>
+    </div>
+    </br>
+
+
+      <script>
+
+        function addTag(){
+          // <div id="task_tags_tag_name">
+          //   <%#= form.fields_for :tags do |tags_form| %>
+          //     <div class="input-group">
+                 <%#= tags_form.text_field :tag_name, class: "form-control"%>
+          //       <div class = "input-group-btn">
+          //         <button type="button" class="btn btn-default" onclick="removeTag(this)">
+          //           <i class="glyphicon glyphicon-remove"></i>
+          //         </button>
+          //       </div>
+          //       <%#= tags_form.hidden_field :_destroy, value: 0 %>
+          //     </div>
+          //   <%# end %>
+          // </div>
+    var tags_div = document.getElementById("task_tags_tag_name");
+
+    var input_group = document.createElement("div");
+    input_group.setAttribute("class", "input-group");
+
+    var num = new Date().valueOf();
+    var tag_name = document.createElement("input");
+    tag_name.setAttribute("class", "form-control");
+    tag_name.setAttribute("type", "text");
+    tag_name.setAttribute("id", "task_tags_attributes+" + num + "_tag_name");
+    tag_name.setAttribute("name", "task[tags_attributes][" + num + "][tag_name]");
+
+    var input_group_btn = document.createElement("div");
+    input_group_btn.setAttribute("class", "input-group-btn");
+
+    var btn = document.createElement("button");
+    btn.setAttribute("class", "btn btn-default");
+    btn.setAttribute("type", "button");
+    btn.setAttribute("onclick", "removeTag(this)");
+
+    var icon = document.createElement("i");
+    icon.setAttribute("class", "glyphicon glyphicon-minus");
+
+    btn.appendChild(icon);
+    input_group_btn.appendChild(btn);
+    input_group.appendChild(tag_name);
+    input_group.appendChild(input_group_btn);
+    tags_div.appendChild(input_group);
+
+    // var $div = $('div[class="input-group"]:last');
+    // var num = "" + new Date().valueOf();
+    // var $new = $div.clone();
+    // $div.after($new);
+    // var $input = $('input[class="form-control"]:last');
+    // $input.val("");
+    // $input.attr("id", "task_tags_attributes_" + num + "_tag_name" );
+    // // $input.removeAttr("id");
+    // $input.attr("name", "task[tags_attributes][" + num + "][tag_name]");
+
+    }
+
+    function removeTag(elem) {
+      $(elem).closest(".input-group").find("input[type='hidden']").val('1');
+      $(elem).closest('.input-group').hide();
+    }
+    </script>
+    <p>
+        <%= form.submit yield(:button_text), class: "btn btn-primary form-control" %>
+    </p>
+
+<% end %>

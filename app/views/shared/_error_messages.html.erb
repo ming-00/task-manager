@@ -1,0 +1,10 @@
+<% if attr.errors.any? %>
+  <div id="error_explanation">
+    <% attr.errors.full_messages.each do |msg| %>
+      <div class="alert alert-warning" alert-dismissible>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <%= msg %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
