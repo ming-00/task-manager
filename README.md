@@ -5,8 +5,8 @@ How to run this project on your computer
 
 Firstly, clone this repo to your workspace and install gems (with bundle install).
 
->$ git clone https://github.com/dukesun99/CVWO-todomanager
->$ cd CVWO-todomanager
+>$ git clone https://github.com/ming-00/task-manager
+>$ cd task-manager
 >$ bundle install --without production
 
 Then, run migrations.
