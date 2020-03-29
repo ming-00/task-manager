@@ -1,7 +1,7 @@
 # task-manager
 A task manager written in Ruby
 
-How to run this project on your computer
+**How to run this project on your computer**
 
 Firstly, clone this repo to your workspace and install gems (with bundle install).
 
