@@ -1,7 +1,7 @@
 # task-manager
 A task manager written in Ruby
 
-
+Heroku deployment: potato-taskmanager.herokuapp.com (not fully deployed)
 
 **How to run this project on your computer**
 
@@ -23,4 +23,4 @@ Open http://localhost:3000 on server.
 
 Mail preview at http://localhost:3000/rails/mailers/user_mailer
 
-Current issue: email authentication
+Currently working on the issue of email authentication
