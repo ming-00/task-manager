@@ -16,3 +16,5 @@ Then, run migrations.
 
 Finally, run rails server.
 >$ rails server
+
+Open http://localhost:3000 on server.
