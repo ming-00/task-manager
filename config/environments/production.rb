@@ -89,20 +89,21 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'vast-atoll-85355.herokuapp.com'
+  host = 'potato-taskmanager.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.gmail.com',
+    :address        => 'smtp.sendgrid.net',
     :port           => 587,
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'mail.google.com',
+    :domain         => 'herokuapp.com',
     :enable_starttls_auto => true
   }
 end
