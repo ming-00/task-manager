@@ -1,6 +1,8 @@
 # task-manager
 A task manager written in Ruby
 
+
+
 **How to run this project on your computer**
 
 Firstly, clone this repo to your workspace and install gems (with bundle install).
@@ -18,3 +20,7 @@ Finally, run rails server.
 >$ rails server
 
 Open http://localhost:3000 on server.
+
+Mail preview at http://localhost:3000/rails/mailers/user_mailer
+
+Current issue: email authentication
