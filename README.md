@@ -1,6 +1,8 @@
 # task-manager
 A task manager written in Ruby
 
+Heroku deployment: https://potato-taskmanager.herokuapp.com
+
 **How to run this project on your computer**
 
 Firstly, clone this repo to your workspace and install gems (with bundle install).
