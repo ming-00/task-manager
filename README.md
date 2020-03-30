@@ -20,5 +20,7 @@ Finally, run rails server.
 >$ rails server
 
 Open http://localhost:3000 on server.
+
 Mail preview at http://localhost:3000/rails/mailers/user_mailer
+
 Current issue: email authentication
