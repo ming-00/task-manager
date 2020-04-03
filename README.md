@@ -1,7 +1,7 @@
 # task-manager
 A task manager written in Ruby
 
-Heroku deployment: http://task-menagerie.herokuapp.com (not fully deployed)
+Heroku deployment: http://task-menagerie.herokuapp.com (currently not fully deployed because of an issue with my Heroku account)
 
 
 
